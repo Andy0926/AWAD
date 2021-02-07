@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PropertyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get("/",[HomeController::class,'home'])->name('home');
+Route::get("/aboutUs",[HomeController::class,'aboutUs'])->name('aboutUs');
+Route::resource('/property',PropertyController::class)->only(['index','show','create','store']);
+//Route::get('/aboutUs', 'HomeController@aboutUs')->name('aboutUs');
+//Route::view('/aboutUs', 'aboutUs')->name('aboutUs');
