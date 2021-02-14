@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     protected $table = 'property';
+    protected $fillable = ['name','type','location','agent','price','bed','bath','garage','area','summary','description'];
 }

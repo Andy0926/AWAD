@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreProperty;
 use App\Models\Property;
+use Illuminate\Http\Request;
 
 class PropertyController extends Controller
 {
@@ -15,7 +16,7 @@ class PropertyController extends Controller
     public function index()
     {
         //
-        return view ('property.index',['property'=>Property::all()]);
+        return view('property.index', ['property' => Property::all()]);
     }
 
     /**
@@ -34,9 +35,30 @@ class PropertyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProperty $request)
     {
-        //
+        $validatedData = $request->validated();
+
+        //dd($validatedData);
+
+        $property = Property::create($validatedData);
+        // $property -> name = $request -> input('name');
+        // $property -> type = $request -> input('type');
+        // $property -> location = $request -> input('location');
+        // $property -> agent = $request -> input('agent');
+        // $property -> price = $request -> input('price');
+        // $property -> bed = $request -> input('bed');
+        // $property -> bath = $request -> input('bath');
+        // $property -> garage = $request -> input('garage');
+        // $property -> area = $request -> input('area');
+        // $property -> summary = $request -> input('summary');
+        // $property -> description = $request -> input('description');
+        //$property -> save();
+
+        $request->session()->flash('status', 'Property was created');
+
+        return redirect()->route('property.show', ['property' => $property->id]);
+
     }
 
     /**
@@ -45,10 +67,11 @@ class PropertyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         //
-        return view('property.show',['property'=> Property::findOrFail($id)]);
+        $request->session()->reflash();
+        return view('property.show', ['property' => Property::findOrFail($id)]);
 
     }
 
@@ -61,6 +84,8 @@ class PropertyController extends Controller
     public function edit($id)
     {
         //
+        $property = Property::findOrFail($id);
+        return view('property.edit', ['property' => $property]);
     }
 
     /**
@@ -70,9 +95,18 @@ class PropertyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProperty $request, $id)
     {
         //
+        $property = Property::findOrFail($id);
+        $validatedData = $request->validated();
+
+        $property->fill($validatedData);
+        $property->save();
+
+        $request->session()->flash('status', 'Property was Updated');
+
+        return redirect()->route('property.show', ['property' => $property->id]);
     }
 
     /**
@@ -81,8 +115,13 @@ class PropertyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $property = Property::findOrFail($id);
+        $property -> delete();
+
+        $request->session()->flash('status', 'Property was Deleted');
+
+        return redirect()->route('property.index');
     }
 }

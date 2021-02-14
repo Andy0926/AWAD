@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12 col-lg-8">
                 <div class="title-single-box">
-                    <h1 class="title-single">Lorem Ipsum</h1>
+                    <h1 class="title-single">{{$property -> name}}</h1>
                     <span class="color-text-a">{{$property -> location}}</span>
                 </div>
             </div>
@@ -18,10 +18,10 @@
                             <a href="{{ route('home')}}">Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="{{ route('property.index')}}">Properties</a>
+                            <a href="{{ route('property.index')}}">Property</a>
                         </li>
-                        <li class="breadcrumb-item active" aria-current="page">
-                            Lorem Ipsum
+                        <li class="breadcrumb-item">
+                            {{$property -> name}}
                         </li>
                     </ol>
                 </nav>
@@ -53,7 +53,11 @@
         </div>
     </div>
 </div>
-
+@if (session()-> has ('status'))
+<p style='color: green'>
+  {{ session()->get('status')}}
+</p>
+@endif
 <div class="container project-description-container">
     <div class="row justify-content-between">
         <div class="col-md-5 col-lg-4">
@@ -123,17 +127,7 @@
             </div>
             <div class="property-description">
                 <p class="description color-text-a">
-                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec
-                    velit
-                    neque, auctor sit amet
-                    aliquam vel, ullamcorper sit amet ligula. Cras ultricies ligula sed magna dictum porta.
-                    Curabitur aliquet quam id dui posuere blandit. Mauris blandit aliquet elit, eget tincidunt
-                    nibh pulvinar quam id dui posuere blandit.
-                </p>
-                <p class="description color-text-a no-margin">
-                    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget
-                    malesuada. Quisque velit nisi,
-                    pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
+                    {{$property -> description}}
                 </p>
             </div>
             <div class="row section-t3">
@@ -254,5 +248,6 @@
         </div>
       </div>
 </div>
-
+@include('footer')
 @endsection
+

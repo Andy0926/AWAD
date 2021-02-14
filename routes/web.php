@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PropertyController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,10 +13,10 @@ use App\Http\Controllers\PropertyController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
-Route::get("/",[HomeController::class,'home'])->name('home');
-Route::get("/aboutUs",[HomeController::class,'aboutUs'])->name('aboutUs');
-Route::resource('/property',PropertyController::class)->only(['index','show','create','store']);
+Route::get("/", [HomeController::class, 'home'])->name('home');
+Route::get("/aboutUs", [HomeController::class, 'aboutUs'])->name('aboutUs');
+Route::resource('/property', PropertyController::class)->only(['index', 'show', 'create', 'store', 'edit', 'update', 'destroy']);
 //Route::get('/aboutUs', 'HomeController@aboutUs')->name('aboutUs');
 //Route::view('/aboutUs', 'aboutUs')->name('aboutUs');

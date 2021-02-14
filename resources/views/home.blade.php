@@ -20,7 +20,7 @@
 					</div>
 				</div>
 				<div class="carousel-caption text-color custom-position1">
-					<h1 class="display-2">Upicon</h1>
+					<h1 class="display-2">UTAR</h1>
 					<h3>We Build a Better Tomorrow</h3>
 					<button type="button" class="btn btn-outline-light btn-lg">Register</button>
 					<button type="button" class="btn btn-success btn-lg">View Projects</button>
@@ -48,15 +48,11 @@
 	<div class="container padding mb-5 ml-6 mr-6">
 		<div class="row welcome text-center ">
 			<div class="col-12">
-				<h1 class="display-4">Upicon Group</h1>
+				<h1 class="display-4">UTAR Group</h1>
 			</div>
 			<hr>
 			<div class="col-12">
-				<p class="lead">UPICON SDN BHD’s corporate history dates back to the 29th of May 1997, when the three
-					entrepreneurs and founders of the group, Dato’ Chai Ming Foo, Datin Low Tan Yu and Datin Seow An Nee
-					joined forces to start Upicon Sdn. Bhd.We are Malaysia-based and although the company is new in
-					property development but all the directors are experienced in property development and construction
-					firm for several years</p>
+				<p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. When an unknown printer took a galley of type and scrambled it. Lorem Ipsum is simply dummy text of the printing and typesetting industry. When an unknown printer took a galley of type and scrambled it</p>
 			</div>
 		</div>
 	</div>
@@ -86,15 +82,10 @@
 
 	<!--- Two Column Section -->
 
-	<div class="container display-green text-white mt-5 mb-5 ml-6 mr-6">
+	<div class="container display-blue text-white mt-5 mb-5 ml-6 mr-6">
 		<div class="row philosophy">
 			<h2 class="mt-3 ">Our Philosophy</h2>
-			<p>Our development concepts are showcases of contemporary lifestyle. Our philosophy is to create a
-				harmonious and green living lifestyle. We provide a safe living environment with gated and guarded
-				security facility which makes coming home a safe haven to look forward to. We aim to be a world class
-				developer that will leave an enduring legacy of innovation and excellence. We remain committed to our
-				corporate philosophy of maximising shareholders’ value by delivering quality homes, health products and
-				excellent services to our customers. </p>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. When an unknown printer took a galley of type and scrambled it. Lorem Ipsum is simply dummy text of the printing and typesetting industry. When an unknown printer took a galley of type and scrambled it.Lorem Ipsum is simply dummy text of the printing and typesetting industry. When an unknown printer took a galley of type and scrambled it</p>
 
 		</div>
 		<hr class="my-4">
@@ -117,37 +108,6 @@
 	</div>
 
 	<!--- Footer -->
-	<footer>
-		<div class="container-fluid padding">
-			<div class="row text-center">
-				<div class="col-md-4 footer-section">
-					<img class="footer-logo" src="img/logo2.png">
-					<hr class="light">
-					<p>(+603) 3323 5120, (+603) 3319 2120</p>
-					<p>upicongroup@upicon.my</p>
-
-				</div>
-				<div class="col-md-4 footer-section">
-					<hr class="light">
-					<p>Operating Hour</p>
-					<hr class="light">
-					<p>Weekday: 9.00am - 5.00pm</p>
-					<p>Saturday: 9.00am - 1.00pm</p>
-					<p>Sunday: Close</p>
-				</div>
-				<div class="col-md-4 footer-section">
-					<hr class="light">
-					<p>Location</p>
-					<hr class="light">
-					<p>WISMA UPICON No. 34, 34-1 & 34-2, Jalan Jasmin 6/KS6, Bandar Botanic, 41200 Klang, Selangor,
-						Malaysia</p>
-				</div>
-				<div class="col-12 footer-section">
-					<hr class="light">
-					<h6>&copy; Upicon.my | 2013 - 2020 | Website Developed by Tech Star</h6>
-				</div>
-			</div>
-		</div>
-	</footer>
+	@include('footer')
 
 	@endsection
