@@ -22,8 +22,10 @@
 				<div class="carousel-caption text-color custom-position1">
 					<h1 class="display-2">UTAR</h1>
 					<h3>We Build a Better Tomorrow</h3>
-					<button type="button" class="btn btn-outline-light btn-lg">Register</button>
-					<button type="button" class="btn btn-success btn-lg">View Projects</button>
+					{{-- <a href="{{route('register')}}"
+						class="btn btn-outline-light btn-lg ">Edit</a>
+					<button type="button" class="btn btn-outline-light btn-lg">Register</button> --}}
+					<a href="{{route('property.index')}}" class="btn btn-primary btn-lg">View Projects</a>
 				</div>
 
 			</div>

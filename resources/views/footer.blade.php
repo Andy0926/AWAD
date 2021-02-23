@@ -2,7 +2,7 @@
     <div class="container-fluid padding">
         <div class="row text-center">
             <div class="col-md-4 footer-section">
-                <img class="footer-logo" src="img/UTAR_Logo.jpg">
+                <img class="footer-logo" src="{{ asset("img/UTAR_Logo.jpg") }}">
                 <hr class="light">
                 <p>(+603) 1234 5678, (+603) 1234 5678</p>
                 <p>info@utargroup.my</p>

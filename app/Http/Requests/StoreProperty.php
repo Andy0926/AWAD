@@ -34,7 +34,7 @@ class StoreProperty extends FormRequest
             'garage' => 'required',
             'area' => 'required',
             'summary' => 'required',
-            'description' => 'required',
+            'description' => 'required'
         ];
     }
 }

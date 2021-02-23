@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProperty;
 use App\Models\Property;
+use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PropertyController extends Controller
 {
@@ -39,22 +41,18 @@ class PropertyController extends Controller
     {
         $validatedData = $request->validated();
 
-        //dd($validatedData);
-
         $property = Property::create($validatedData);
-        // $property -> name = $request -> input('name');
-        // $property -> type = $request -> input('type');
-        // $property -> location = $request -> input('location');
-        // $property -> agent = $request -> input('agent');
-        // $property -> price = $request -> input('price');
-        // $property -> bed = $request -> input('bed');
-        // $property -> bath = $request -> input('bath');
-        // $property -> garage = $request -> input('garage');
-        // $property -> area = $request -> input('area');
-        // $property -> summary = $request -> input('summary');
-        // $property -> description = $request -> input('description');
-        //$property -> save();
 
+        if ($request -> hasFile('image')) {
+            // $file = $request -> file('image');
+            // $name1=$file->storeAs('image', $property->id . '.' . $file->guessExtension());
+            // dump(Storage::url($name1));
+            $path = $request->file('image')->store('image');
+            $property -> image()->save(
+                Image::create(['path'=> $path])
+            );
+        }
+        // die;
         $request->session()->flash('status', 'Property was created');
 
         return redirect()->route('property.show', ['property' => $property->id]);
@@ -118,7 +116,7 @@ class PropertyController extends Controller
     public function destroy(Request $request, $id)
     {
         $property = Property::findOrFail($id);
-        $property -> delete();
+        $property->delete();
 
         $request->session()->flash('status', 'Property was Deleted');
 

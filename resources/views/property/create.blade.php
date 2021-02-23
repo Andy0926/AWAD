@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container center">
-    <form method="POST" action="{{route('property.store')}}">
+    <form method="POST" action="{{route('property.store')}}" enctype="multipart/form-data">
         @csrf
         <div class="col-lg">
 

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container center">
-    <form method="POST" action="{{route('property.update', ['property' => $property->id])}}">
+    <form method="POST" action="{{route('property.update', ['property' => $property->id])}}" enctype="multipart/form-data">
         @csrf
 
         @method('PUT')

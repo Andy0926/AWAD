@@ -133,6 +133,18 @@
     </div>
 </div>
 
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="md-form mb-0">
+            <label class="">Image :</label>
+            <input type="file" name="image" class="form-control-file">
+                {{-- class="form-control form-control-long"> --}}
+
+        </div>
+    </div>
+</div>
+
 @if ($errors->any())
 <div>
     <ul>

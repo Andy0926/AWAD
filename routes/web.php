@@ -18,5 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", [HomeController::class, 'home'])->name('home');
 Route::get("/aboutUs", [HomeController::class, 'aboutUs'])->name('aboutUs');
 Route::resource('/property', PropertyController::class)->only(['index', 'show', 'create', 'store', 'edit', 'update', 'destroy']);
-//Route::get('/aboutUs', 'HomeController@aboutUs')->name('aboutUs');
-//Route::view('/aboutUs', 'aboutUs')->name('aboutUs');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
